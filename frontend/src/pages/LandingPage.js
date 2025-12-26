@@ -202,6 +202,121 @@ export const LandingPage = () => {
       </section>
 
       <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-4">Why This Is Different</h2>
+            <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
+              {[
+                { label: 'Not surveys', value: 'Decisions' },
+                { label: 'Not opinions', value: 'Patterns' },
+                { label: 'Not advice', value: 'Evidence' },
+              ].map((item, idx) => (
+                <div key={idx} className="glass rounded-lg p-4">
+                  <div className="text-sm text-slate-400 mb-1">{item.label}</div>
+                  <div className="text-2xl font-heading font-bold text-primary">{item.value}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-xl text-slate-300 mt-8 mb-8">Built for early-stage founders who need clarity, not confusion</p>
+            <Button 
+              size="lg"
+              onClick={() => navigate('/auth')}
+              data-testid="cta-start-validation-btn"
+              className="bg-primary hover:bg-primary/90 text-white font-medium rounded-md px-8 py-6 text-lg"
+            >
+              Start Free Validation
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-muted-foreground">New Feature</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-6">
+                Validate on the go with{' '}
+                <span className="text-gradient">Telegram Bot</span>
+              </h2>
+              <p className="text-lg text-slate-300 leading-relaxed mb-6">
+                Connect your validation sessions to Telegram and get AI-powered insights directly in your chat. Perfect for busy founders who want validation on the move.
+              </p>
+              <div className="space-y-4">
+                {[
+                  { title: 'Instant Notifications', desc: 'Get Market Fit Scores delivered to your Telegram' },
+                  { title: 'Chat with AI Anywhere', desc: 'Continue validation sessions from your phone' },
+                  { title: 'Quick Decision Updates', desc: 'Receive Build/Pivot/Kill recommendations instantly' },
+                ].map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle2 className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-heading font-semibold mb-1">{feature.title}</h3>
+                      <p className="text-slate-300">{feature.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <Button 
+                size="lg"
+                onClick={() => navigate('/auth')}
+                className="mt-8 bg-primary hover:bg-primary/90 text-white font-medium rounded-md px-8 py-6 text-lg"
+              >
+                Connect Telegram Bot
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="glass rounded-2xl p-8 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-50"></div>
+                <div className="relative z-10 space-y-6">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Target className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-heading font-bold">IdeaVerdict Bot</div>
+                      <div className="text-sm text-slate-400">@ideaverdict_bot</div>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="bg-primary/10 rounded-lg p-4 border-l-4 border-primary">
+                      <div className="text-sm text-slate-400 mb-1">User</div>
+                      <div className="text-slate-200">/start validation</div>
+                    </div>
+                    <div className="bg-white/5 rounded-lg p-4">
+                      <div className="text-sm text-slate-400 mb-1">IdeaVerdict Bot</div>
+                      <div className="text-slate-200">👋 Hey! Ready to validate your startup idea? Let's start with the basics. What problem are you trying to solve?</div>
+                    </div>
+                    <div className="bg-primary/10 rounded-lg p-4 border-l-4 border-primary">
+                      <div className="text-sm text-slate-400 mb-1">User</div>
+                      <div className="text-slate-200">I'm building a tool to help...</div>
+                    </div>
+                  </div>
+                  <div className="pt-4 border-t border-white/10 text-sm text-slate-400 text-center">
+                    Real-time AI validation in Telegram
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="glass rounded-2xl p-12 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10"></div>
@@ -212,27 +327,15 @@ export const LandingPage = () => {
               className="relative z-10"
             >
               <Zap className="w-16 h-16 text-primary mx-auto mb-6" />
-              <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-4">Why This Is Different</h2>
-              <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
-                {[
-                  { label: 'Not surveys', value: 'Decisions' },
-                  { label: 'Not opinions', value: 'Patterns' },
-                  { label: 'Not advice', value: 'Evidence' },
-                ].map((item, idx) => (
-                  <div key={idx} className="glass rounded-lg p-4">
-                    <div className="text-sm text-slate-400 mb-1">{item.label}</div>
-                    <div className="text-2xl font-heading font-bold text-primary">{item.value}</div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-xl text-slate-300 mt-8 mb-8">Built for early-stage founders who need clarity, not confusion</p>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-8">Don't Build Blindly</h2>
+              <p className="text-xl text-slate-300 mb-8">Join founders making data-driven decisions</p>
               <Button 
                 size="lg"
                 onClick={() => navigate('/auth')}
-                data-testid="cta-start-validation-btn"
+                data-testid="final-cta-btn"
                 className="bg-primary hover:bg-primary/90 text-white font-medium rounded-md px-8 py-6 text-lg"
               >
-                Start Free Validation
+                Start Validating Today
               </Button>
             </motion.div>
           </div>
