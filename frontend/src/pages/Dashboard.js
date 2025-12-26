@@ -92,15 +92,27 @@ export const Dashboard = () => {
             <h1 className="text-4xl font-heading font-bold mb-2">Your Validations</h1>
             <p className="text-lg text-slate-300">Track and manage your startup idea validations</p>
           </div>
-          <Button
-            onClick={createNewSession}
-            data-testid="create-session-btn"
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-white font-medium rounded-md px-6"
-          >
-            <Plus className="w-5 h-5 mr-2" />
-            New Validation
-          </Button>
+          <div className="flex gap-3">
+            <Button
+              onClick={() => navigate('/telegram-settings')}
+              data-testid="telegram-settings-btn"
+              variant="outline"
+              size="lg"
+              className="border-primary/50 hover:bg-primary/10 text-primary font-medium rounded-md px-6"
+            >
+              <Send className="w-5 h-5 mr-2" />
+              Telegram Bot
+            </Button>
+            <Button
+              onClick={createNewSession}
+              data-testid="create-session-btn"
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white font-medium rounded-md px-6"
+            >
+              <Plus className="w-5 h-5 mr-2" />
+              New Validation
+            </Button>
+          </div>
         </div>
 
         {loading ? (
