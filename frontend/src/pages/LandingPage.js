@@ -303,7 +303,7 @@ export const LandingPage = () => {
                     </div>
                     <div className="bg-primary/10 rounded-lg p-4 border-l-4 border-primary">
                       <div className="text-sm text-slate-400 mb-1">User</div>
-                      <div className="text-slate-200">I'm building a tool to help...</div>
+                      <div className="text-slate-200">I&apos;m building a tool to help...</div>
                     </div>
                   </div>
                   <div className="pt-4 border-t border-white/10 text-sm text-slate-400 text-center">
