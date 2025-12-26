@@ -23,9 +23,14 @@ mongo_url = os.environ.get('MONGO_URL')
 db_name = os.environ.get('DB_NAME')
 JWT_SECRET = os.environ.get('JWT_SECRET', 'fallback-secret-key')
 EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY', '')
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
 
 client = AsyncIOMotorClient(mongo_url)
 db = client[db_name]
+
+telegram_bot = None
+if TELEGRAM_BOT_TOKEN:
+    telegram_bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
