@@ -1,0 +1,115 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "E1_Neon_Brutalism",
+      "vibe": "The Terminal of Truth. Futuristic, decisive, uncomfortably clear.",
+      "principles": [
+        "Fusion: Swiss Grid meets Cyberpunk.",
+        "Emotion: Validation is scary but necessary. Design should feel like a cockpit.",
+        "Content: Data over decoration. If it doesn't help the founder decide, kill it.",
+        "Contrast: High contrast is mandatory. No low-contrast grey text."
+      ]
+    },
+    "typography": {
+      "fonts": {
+        "heading": {
+          "family": "Space Grotesk",
+          "weights": ["600", "700"],
+          "usage": "All headings (h1-h6). Tight tracking (-0.02em)."
+        },
+        "body": {
+          "family": "Manrope",
+          "weights": ["400", "500"],
+          "usage": "Paragraphs, UI elements. Relaxed leading."
+        },
+        "mono": {
+          "family": "JetBrains Mono",
+          "weights": ["400"],
+          "usage": "Data points, scores, code snippets, 'thinking' logs."
+        }
+      },
+      "scale": {
+        "h1": "text-5xl md:text-7xl font-bold tracking-tighter",
+        "h2": "text-4xl md:text-5xl font-bold tracking-tight",
+        "h3": "text-2xl md:text-3xl font-semibold",
+        "body": "text-base md:text-lg leading-relaxed",
+        "caption": "text-xs uppercase tracking-widest text-muted-foreground"
+      }
+    },
+    "colors": {
+      "palette": {
+        "background": "#030711",
+        "foreground": "#f8fafc",
+        "primary": "#6366f1",
+        "primary_foreground": "#ffffff",
+        "secondary": "#10b981",
+        "destructive": "#ef4444",
+        "accent": "#d946ef",
+        "muted": "#1e293b",
+        "border": "#1e293b"
+      },
+      "usage_rules": {
+        "background": "Always dark (#030711). Never pure black (#000000).",
+        "gradients": "Use sparingly. Only for 'magical' AI moments, not for generic buttons.",
+        "text": "Headings are white. Body is slate-300. Never use pure grey (#808080)."
+      }
+    },
+    "layout": {
+      "grid_system": "Bento Grid (Asymmetrical). Never use equal 3-column grids for features.",
+      "spacing": "Generous. Minimum p-8 for sections. Gap-6 or Gap-8 for grids.",
+      "containers": "Max-width-7xl. Centered.",
+      "borders": "1px solid border-white/10. Use 'Tracing Beam' effect for active cards."
+    },
+    "components": {
+      "buttons": {
+        "style": "Sharp or slightly rounded (rounded-md). High contrast.",
+        "hover": "Transform: translateY(-2px). Shadow-lg (colored shadow)."
+      },
+      "cards": {
+        "style": "Glassmorphism. bg-white/5 backdrop-blur-xl border border-white/10.",
+        "hover": "Border becomes primary color (indigo-500)."
+      },
+      "inputs": {
+        "style": "bg-white/5 border-white/10 focus:border-primary focus:ring-1 focus:ring-primary."
+      }
+    },
+    "motion": {
+      "library": "Framer Motion",
+      "rules": [
+        "No 'fade-in-up' everywhere.",
+        "Use 'staggerChildren' for lists.",
+        "Text reveal animations for headlines.",
+        "Smooth scroll (Lenis) is MANDATORY."
+      ]
+    },
+    "assets": {
+      "images": {
+        "hero_bg": "https://images.unsplash.com/photo-1762279388988-3f8abcc7dca2?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "about_team": "https://images.unsplash.com/photo-1603201667141-5a2d4c673378?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "how_it_works": "https://images.unsplash.com/photo-1702726001096-096efcf640b8?crop=entropy&cs=srgb&fm=jpg&q=85"
+      },
+      "icons": "Lucide React (default). Use thin strokes (1.5px)."
+    }
+  },
+  "implementation_guide": {
+    "steps": [
+      "1. Setup Tailwind config with new colors and fonts.",
+      "2. Install 'lenis' for smooth scrolling.",
+      "3. Create 'Layout' component with Navbar and Footer.",
+      "4. Build 'Hero' section with Bento Grid and 3D/Abstract background.",
+      "5. Build 'Chat' interface with 'Typewriter' effect for AI responses.",
+      "6. Build 'Results' page with Recharts (customized to look like a HUD)."
+    ],
+    "anti_patterns": [
+      "Do NOT use 'Inter' font.",
+      "Do NOT use purple/teal gradients for buttons.",
+      "Do NOT center everything. Use asymmetry.",
+      "Do NOT use default Shadcn cards without customization."
+    ]
+  },
+  "universal_guidelines": {
+    "testing": "All interactive elements must have data-testid attributes.",
+    "accessibility": "Ensure contrast ratios. Use aria-labels for icon buttons.",
+    "code_style": "Functional components. Named exports for components, default for pages."
+  }
+}
