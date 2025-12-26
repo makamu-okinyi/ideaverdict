@@ -299,7 +299,7 @@ export const LandingPage = () => {
                     </div>
                     <div className="bg-white/5 rounded-lg p-4">
                       <div className="text-sm text-slate-400 mb-1">IdeaVerdict Bot</div>
-                      <div className="text-slate-200">👋 Hey! Ready to validate your startup idea? Let's start with the basics. What problem are you trying to solve?</div>
+                      <div className="text-slate-200">👋 Hey! Ready to validate your startup idea? Let&apos;s start with the basics. What problem are you trying to solve?</div>
                     </div>
                     <div className="bg-primary/10 rounded-lg p-4 border-l-4 border-primary">
                       <div className="text-sm text-slate-400 mb-1">User</div>
