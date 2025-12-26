@@ -394,6 +394,57 @@ NEXT_ACTIONS: [3-5 specific action items, separated by |]
         next_actions=next_actions
     )
 
+@api_router.post("/telegram/setup")
+async def setup_telegram_bot(bot_setup: TelegramBotSetup, user_id: str = Depends(get_current_user)):
+    try:
+        bot = Bot(token=bot_setup.bot_token)
+        bot_info = await bot.get_me()
+        
+        existing = await db.telegram_connections.find_one({"user_id": user_id}, {"_id": 0})
+        if existing:
+            await db.telegram_connections.update_one(
+                {"user_id": user_id},
+                {"$set": {"bot_token": bot_setup.bot_token, "is_active": True}}
+            )
+        else:
+            connection = TelegramConnection(
+                user_id=user_id,
+                telegram_chat_id="",
+                bot_token=bot_setup.bot_token
+            )
+            conn_dict = connection.model_dump()
+            conn_dict['created_at'] = conn_dict['created_at'].isoformat()
+            await db.telegram_connections.insert_one(conn_dict)
+        
+        return {
+            "status": "success",
+            "bot_username": bot_info.username,
+            "bot_name": bot_info.first_name,
+            "instructions": f"Open Telegram and search for @{bot_info.username}, then send /start to begin validation."
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid bot token: {str(e)}")
+
+@api_router.get("/telegram/status")
+async def get_telegram_status(user_id: str = Depends(get_current_user)):
+    connection = await db.telegram_connections.find_one({"user_id": user_id}, {"_id": 0})
+    if not connection:
+        return {"connected": False}
+    
+    return {
+        "connected": True,
+        "is_active": connection.get("is_active", False),
+        "chat_id": connection.get("telegram_chat_id", "")
+    }
+
+@api_router.delete("/telegram/disconnect")
+async def disconnect_telegram(user_id: str = Depends(get_current_user)):
+    await db.telegram_connections.update_one(
+        {"user_id": user_id},
+        {"$set": {"is_active": False}}
+    )
+    return {"status": "disconnected"}
+
 app.include_router(api_router)
 
 app.add_middleware(
