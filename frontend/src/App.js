@@ -55,6 +55,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/telegram-settings"
+            element={
+              <ProtectedRoute>
+                <TelegramSettings />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
