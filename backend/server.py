@@ -103,6 +103,18 @@ class FinalAnalysisResponse(BaseModel):
     reasoning: str
     next_actions: List[str]
 
+class TelegramBotSetup(BaseModel):
+    bot_token: str
+
+class TelegramConnection(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    user_id: str
+    telegram_chat_id: str
+    bot_token: str
+    is_active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
 def create_token(user_id: str) -> str:
     payload = {
         'user_id': user_id,
