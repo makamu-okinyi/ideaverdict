@@ -327,7 +327,7 @@ export const LandingPage = () => {
               className="relative z-10"
             >
               <Zap className="w-16 h-16 text-primary mx-auto mb-6" />
-              <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-8">Don't Build Blindly</h2>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-8">Don&apos;t Build Blindly</h2>
               <p className="text-xl text-slate-300 mb-8">Join founders making data-driven decisions</p>
               <Button 
                 size="lg"
