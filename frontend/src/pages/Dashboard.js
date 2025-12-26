@@ -5,7 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import axios from 'axios';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import { Plus, MessageSquare, TrendingUp, Clock, LogOut, Sparkles } from 'lucide-react';
+import { Plus, MessageSquare, TrendingUp, Clock, LogOut, Sparkles, Send } from 'lucide-react';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL + '/api';
 
