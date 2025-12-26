@@ -6,6 +6,7 @@ import { AuthPage } from '@/pages/AuthPage';
 import { Dashboard } from '@/pages/Dashboard';
 import { ChatPage } from '@/pages/ChatPage';
 import { ResultsPage } from '@/pages/ResultsPage';
+import { TelegramSettings } from '@/pages/TelegramSettings';
 import '@/App.css';
 
 const ProtectedRoute = ({ children }) => {
