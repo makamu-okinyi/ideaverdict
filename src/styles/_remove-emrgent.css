@@ -1,0 +1,23 @@
+/* Non-destructive CSS overrides to hide elements that look like watermarks */
+/* Include this stylesheet in your main layout or import into your build to apply globally */
+
+*[class*='emrgent'], *[id*='emrgent'],
+*[class*='watermark'], *[id*='watermark'] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide background-image overlays that reference common watermark filenames */
+[class*='emrgent'] { background-image: none !important; }
+[id*='emrgent'] { background-image: none !important; }
+[class*='watermark'] { background-image: none !important; }
+[id*='watermark'] { background-image: none !important; }
+
+/* Try to neutralize pseudo-elements used for overlays */
+*[class*='emrgent']::before, *[class*='emrgent']::after,
+*[class*='watermark']::before, *[class*='watermark']::after {
+  content: none !important;
+  display: none !important;
+}
